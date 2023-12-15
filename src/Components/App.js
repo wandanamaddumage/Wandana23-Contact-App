@@ -40,22 +40,33 @@ function App() {
           <Route 
             path="/" 
             exact 
-            render = {(props) => (
+              render={(props) => (
+                <ContactList 
+                  {...props}
+                  contacts={contacts} 
+                  getContactId={removeContactHandler}
+                />
+              )}
+            /*Component = {() => (
               <ContactList 
-                {...props} 
                 contacts={contacts} 
                 getContactId={removeContactHandler}
               />
-            )}
+            )}*/
           /> 
           <Route 
             path="/add" 
-            render = {(props) => (
+            render={(props) => (
               <AddContact 
                 {...props}  
                 AddContactHandler={AddContactHandler}
               />
             )}
+            /*Component = {() => (
+              <AddContact   
+                AddContactHandler={AddContactHandler}
+              />
+            )}*/
           />
       </Routes>
       </Router>
