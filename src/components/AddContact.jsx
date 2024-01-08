@@ -1,4 +1,6 @@
 import React from "react";
+import "./ContactList";
+
 
 class AddContact extends React.Component{
     state = {
@@ -7,12 +9,13 @@ class AddContact extends React.Component{
     };
         add = (e) =>{
             e.preventDefault();
-            if(this.state.name === "" && this.state.email === ""){
+            if(this.state.name === "" || this.state.email === ""){
                 alert("All the fields are mandatory!")
                 return
             }
             this.props.AddContactHandler(this.state);
             this.setState({name:"",email:""});
+                window.location.href='/'
         }
     render() {
         return(
@@ -37,9 +40,9 @@ class AddContact extends React.Component{
                             value={this.state.email}
                             onChange={(e) => this.setState({email: e.target.value})}/>
                     </div>
-                    <button className="ui button blue">Add</button>
+                            <button className="ui button blue" >Add</button>
                 </form>
-            </div>
+                    </div>
         );
     }
 }
