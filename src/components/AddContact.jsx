@@ -4,7 +4,7 @@ import "./ContactList";
 
 class AddContact extends React.Component{
     state = {
-        name: "",
+        name: "", 
         email: "",
     };
         add = (e) =>{
